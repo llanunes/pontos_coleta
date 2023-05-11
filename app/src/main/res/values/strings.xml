@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PontosColeta</string>
+    <string name="voce_recebeu">Você recebeu</string>
+    <string name="pontos">+4 PONTOS</string>
 </resources>
