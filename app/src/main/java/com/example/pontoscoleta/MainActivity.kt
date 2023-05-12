@@ -7,6 +7,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -68,62 +70,72 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun PointsCard() {
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .fillMaxHeight()
-                .padding(50.dp)
-                .background(Color.White),
-
+        Column(
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxSize()
         ) {
-            Column(
+            Box(
+                contentAlignment = Alignment.Center,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(30.dp)
+                    .background(Color.White, RoundedCornerShape(16.dp))
+                    .size(530.dp),
             ) {
-                Text(
-                    text = "Você recebeu",
-                    modifier = Modifier.align(CenterHorizontally),
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black,
-
+                Image(
+                    painter = painterResource(R.drawable.backgrpind_braco),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.FillBounds
                 )
-                Spacer(modifier = Modifier.height(16.dp))
-                Box(
+                Column(
                     modifier = Modifier
-                        .size(250.dp)
-                        .clip(CircleShape)
-                        .align(Alignment.CenterHorizontally)
-                        .background(color = Color(8, 113, 19))
+                        .fillMaxWidth()
+                        .padding(16.dp),
                 ) {
                     Text(
-                        text = "+4 PONTOS",
-                        color = Color.White,
+                        text = "Você recebeu",
+                        modifier = Modifier.align(CenterHorizontally),
                         fontSize = 30.sp,
                         fontWeight = FontWeight.Bold,
-                        modifier = Modifier
-                            .align(Alignment.Center)
+                        color = Color.Black,
                     )
-                }
-                Text(
-                    text = "Larissa confirmou seu recolhimento",
-                    color = Color(0,0,0),
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
-                        .padding(top = 26.dp)
-                )
-                Button(onClick = { /*TODO*/ }, modifier = Modifier
-                    .padding(top = 25.dp)
-                    .width(200.dp)
-                    .height(40.dp)
-                    .align(alignment = CenterHorizontally),
-                    colors = ButtonDefaults.buttonColors(Color(8,113,19))
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Box(
+                        modifier = Modifier
+                            .size(250.dp)
+                            .clip(CircleShape)
+                            .align(Alignment.CenterHorizontally)
+                            .background(color = Color(8, 113, 19))
+                    ) {
+                        Text(
+                            text = "+4 PONTOS",
+                            color = Color.White,
+                            fontSize = 30.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .align(Alignment.Center)
+                        )
+                    }
+                    Text(
+                        text = "Larissa confirmou seu recolhimento",
+                        color = Color(0, 0, 0),
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .padding(top = 26.dp)
+                    )
+                    Button(
+                        onClick = { /*TODO*/ }, modifier = Modifier
+                            .padding(top = 25.dp)
+                            .width(200.dp)
+                            .height(40.dp)
+                            .align(alignment = CenterHorizontally),
+                        colors = ButtonDefaults.buttonColors(Color(8, 113, 19))
 
-                ) {
-                    Text(text = "CONFIRMAR")
+                    ) {
+                        Text(text = "CONFIRMAR")
+                    }
                 }
             }
         }
